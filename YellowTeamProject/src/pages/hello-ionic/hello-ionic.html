@@ -1,32 +1,32 @@
 <ion-list>
 
   <ion-item>
-    <ion-label stacked>Country</ion-label>
+    <ion-label>Country</ion-label>
     <ion-input type="country"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label stacked>City</ion-label>
+    <ion-label>City</ion-label>
     <ion-input type="city"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label stacked>Starting Date</ion-label>
+    <ion-label>Starting Date</ion-label>
 
     <ion-select [(ngModel)]="month">
-      <ion-option value="jan" selected="true">January</ion-option>
-      <ion-option value="f" selected="true">February</ion-option>
-      <ion-option value="m" selected="true">March</ion-option>
-      <ion-option value="mar" selected="true">April</ion-option>
-      <ion-option value="may" selected="true">May</ion-option>
-      <ion-option value="jun" selected="true">June</ion-option>
-      <ion-option value="jul" selected="true">July</ion-option>
-      <ion-option value="aug" selected="true">August</ion-option>
-      <ion-option value="s" selected="true">September</ion-option>
-      <ion-option value="o" selected="true">October</ion-option>
-      <ion-option value="n" selected="true">November</ion-option>
-      <ion-option value="d" selected="true">December</ion-option>
-    </ion-select>
+        <ion-option value="01">January</ion-option>
+        <ion-option value="02">February</ion-option>
+        <ion-option value="03">March</ion-option>
+        <ion-option value="04">April</ion-option>
+        <ion-option value="05">May</ion-option>
+        <ion-option value="06">June</ion-option>
+        <ion-option value="07">July</ion-option>
+        <ion-option value="08">August</ion-option>
+        <ion-option value="09">September</ion-option>
+        <ion-option value="10">October</ion-option>
+        <ion-option value="11">November</ion-option>
+        <ion-option value="12" checked="true">December</ion-option>
+      </ion-select>
 
     <ion-select [(ngModel)]="day">
       <ion-option value="1" selected="true">1</ion-option>
@@ -63,29 +63,31 @@
     </ion-select>
 
     <ion-select [(ngModel)]="year">
-      <ion-option value="2017" selected="true">2017</ion-option>
-      <ion-option value="2018" selected="true">2018</ion-option>
-      <ion-option value="2019" selected="true">2019</ion-option>
+        <ion-option>2017</ion-option>
+        <ion-option>2018</ion-option>
+        <ion-option>2019</ion-option>
+        <ion-option>2020</ion-option>
     </ion-select>
   </ion-item>
 
     <ion-item>
-    <ion-label stacked>Ending Date</ion-label>
+
+    <ion-label>Ending Date</ion-label>
 
     <ion-select [(ngModel)]="month">
-      <ion-option value="jan" selected="true">January</ion-option>
-      <ion-option value="f" selected="true">February</ion-option>
-      <ion-option value="m" selected="true">March</ion-option>
-      <ion-option value="mar" selected="true">April</ion-option>
-      <ion-option value="may" selected="true">May</ion-option>
-      <ion-option value="jun" selected="true">June</ion-option>
-      <ion-option value="jul" selected="true">July</ion-option>
-      <ion-option value="aug" selected="true">August</ion-option>
-      <ion-option value="s" selected="true">September</ion-option>
-      <ion-option value="o" selected="true">October</ion-option>
-      <ion-option value="n" selected="true">November</ion-option>
-      <ion-option value="d" selected="true">December</ion-option>
-    </ion-select>
+        <ion-option value="01">January</ion-option>
+        <ion-option value="02">February</ion-option>
+        <ion-option value="03">March</ion-option>
+        <ion-option value="04">April</ion-option>
+        <ion-option value="05">May</ion-option>
+        <ion-option value="06">June</ion-option>
+        <ion-option value="07">July</ion-option>
+        <ion-option value="08">August</ion-option>
+        <ion-option value="09">September</ion-option>
+        <ion-option value="10">October</ion-option>
+        <ion-option value="11">November</ion-option>
+        <ion-option value="12" checked="true">December</ion-option>
+      </ion-select>
 
     <ion-select [(ngModel)]="day">
       <ion-option value="1" selected="true">1</ion-option>
@@ -122,12 +124,19 @@
     </ion-select>
 
     <ion-select [(ngModel)]="year">
-      <ion-option value="2017" selected="true">2017</ion-option>
-      <ion-option value="2018" selected="true">2018</ion-option>
-      <ion-option value="2019" selected="true">2019</ion-option>
+        <ion-option>2017</ion-option>
+        <ion-option>2018</ion-option>
+        <ion-option>2019</ion-option>
+        <ion-option>2020</ion-option>
     </ion-select>
   </ion-item>
 
-  <button ion-button>Surf</button>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5></ion-col>
+      <ion-col col-5><button ion-button outline>Surf</button></ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-list>
