@@ -1,61 +1,52 @@
 import { Component } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 @Component({
   selector:'LastPage',
   templateUrl: 'lastpage.html'
 })
-export class Tab1 {
-  hosts : Array<{name:string, location:string, connection:string, degree:string, intro:string, hostimg:string, sofaimg1:any, sofaimg2:any, sofaimg3:any}>
-  constructor(){
-    this.hosts=[
-      {
-       name:'Marty McFly',
-       location:"Evanston",
-       connection:'Menglei Lei',
-       degree:"2nd Degree",
-       intro:'some introduction to the sofa11',
-       hostimg:'../../assets/img/menglei.jpeg',
-       sofaimg1:'../../assets/img/sofa.JPG',
-       sofaimg2:'../../assets/img/sofa.JPG',
-       sofaimg3:'../../assets/img/sofa.JPG'
-     },
+export class LastPage {
+  Comments:Array<{headimg:string, name:string, comment:string, rate:any}>;
+  newheadimg:string;
+  newname:string;
+  newcomment:string;
+  rate:any;
+  warning:string;
 
-      {
-       name:'AAAAA BBBBB',
-       location:"Los Angeles",
-       connection:'Menglei Lei',
-       degree:"1st Degree",
-       intro:'some introduction to the sofa22',
-       hostimg:'../../assets/img/menglei.jpeg',
-       sofaimg1:'../../assets/img/sofa.JPG',
-       sofaimg2:'../../assets/img/sofa.JPG',
-       sofaimg3:'../../assets/img/sofa.JPG'
-     },
+  constructor(public toastCtrl: ToastController){
+    this.Comments=[
+      {headimg:"http://www.piz18.com/wp-content/uploads/2015/05/So-beautiful-melancholic-cat-550x371.jpg", name:"Menglei", comment:"This is good!", rate:"Very Good"},
+      {headimg:"http://www.piz18.com/wp-content/uploads/2015/05/So-beautiful-melancholic-cat-550x371.jpg", name:"Alex", comment:"This is bad!", rate:"Very Bad"}
 
-      {
-        name:'CCCCC DDDDD',
-        location:"San Jose",
-        connection:'Menglei Lei',
-        degree:"3rd Degree",
-        intro:'some introduction to the sofa33',
-        hostimg:'../../assets/img/menglei.jpeg',
-        sofaimg1:'../../assets/img/sofa.JPG',
-        sofaimg2:'../../assets/img/sofa.JPG',
-        sofaimg3:'../../assets/img/sofa.JPG'
-      },
-
-      {
-        name:'EEEEE FFFFFF',
-        location:"Chicago",
-        connection:'Menglei Lei',
-        degree:"4th Degree",
-        intro:'some introduction to the sofa44',
-        hostimg:'../../assets/img/menglei.jpeg',
-        sofaimg1:'../../assets/img/sofa.JPG',
-        sofaimg2:'../../assets/img/sofa.JPG',
-        sofaimg3:'../../assets/img/sofa.JPG'
-      }
     ];
+    this.newheadimg = "http://www.piz18.com/wp-content/uploads/2015/05/So-beautiful-melancholic-cat-550x371.jpg";
+    this.newname = "Random";
+    this.newcomment = "";
+    this.rate = "";
+  }
+
+  addComment(){
+    if(this.newcomment != "" && this.rate != ""){
+      var comment={
+          headimg:this.newheadimg,
+          name:this.newname,
+          comment:this.newcomment,
+          rate:this.rate
+      };
+      this.Comments.push(comment);
+      this.newcomment = "";
+      this.rate = "";
+      this.warning = "";
+    }
+    else{
+      let toast = this.toastCtrl.create({
+        message: 'Input Comment and Rate',
+        position: "middle",
+        duration: 1000
+      });
+      toast.present();
+    }
   }
 
 }

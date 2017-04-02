@@ -1,19 +1,12 @@
-
-<!-- <ion-content class="" scroll="false">
-<a class="card item" style="height: 40%;background: seagreen;text-align: center; width: auto;">
-<h1 class="row row-center" style="color: whitesmoke;">JOBS</h1>
-<p class="row row-center" style="color: whitesmoke;">Tech vacancies in your pocket.</p> </a>
-<ion-scroll direction="y">
-<div class="card waves-effect waves-green waves-green" style="background:gray" ng-click="todayJobs();">
-  <ionic-slides></ion-slides>
-<a class="item item-avatar waves-effect waves-block waves-dark in done item-text-wrap">
-<span class="avatar" style="background-image: url('../../../../../img/app/homePageJobsBackground.jpg');"></span>
-<h2 style="color:whitesmoke">Today Jobs</h2>
-<p style="color:black">Discover all jobs in india.</p>
-</a>
-</div>
-</ion-scroll>
-</ion-content> -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>SofaSurf Detail</ion-title>
+    <!-- <img src="../../assets/img/logo.png"> -->
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
   <div class="upper">
@@ -69,8 +62,9 @@
         <ion-col text-right><ion-icon name="ios-snow"></ion-icon></ion-col>
       </ion-row>
     </ion-item>
-
   </div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Comments Part  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
   <div class="comment">
     <ion-row>
@@ -78,43 +72,33 @@
         <h2>Comments</h2>
       </ion-col>
       <ion-col text-right large>
-        <button type='submit' name='search' ion-button round outline medium><p>Post</p></button>
+        <button type='submit' (click)="addComment()" ion-button round outline medium><p>Post</p></button>
       </ion-col>
     </ion-row>
 
     <ion-item>
-    <ion-label color="primary" floating>Write Comments</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+      <ion-label color="primary" floating>Write Comments</ion-label>
+      <ion-input type="text" [(ngModel)]="newcomment" name="newcomment"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Rate</ion-label>
+      <ion-select [(ngModel)]="rate">
+        <ion-option value="Very Bad">Very Bad&emsp;<ion-icon name="ios-thumbs-down"></ion-icon></ion-option>
+        <ion-option value="Bad">Bad&emsp;<ion-icon name="md-sad"></ion-icon></ion-option>
+        <ion-option value="Medium">Medium&emsp;<ion-icon name="ios-thumbs-down"></ion-icon></ion-option>
+        <ion-option value="Good">Good&emsp;<ion-icon name="md-happy"></ion-icon></ion-option>
+        <ion-option value="Very Good">Very Good&emsp;<ion-icon name="ios-thumbs-up"></ion-icon></ion-option>
+      </ion-select>
+    </ion-item>
 
-    <ion-list>
+    <ion-list *ngFor="let comment of Comments">
       <ion-item>
         <ion-avatar item-left>
-          <img src="http://www.piz18.com/wp-content/uploads/2015/05/So-beautiful-melancholic-cat-550x371.jpg">
+          <img src={{comment.headimg}}>
         </ion-avatar>
-        <h2>Finn</h2>
-        <h3>Rate: <ion-icon name="heart"></ion-icon><ion-icon name="heart"></ion-icon><ion-icon name="heart"></ion-icon><ion-icon name="heart" isActive="false"></ion-icon></h3>
-        <p>This is good</p>
-      </ion-item>
-    </ion-list>
-    <ion-list>
-      <ion-item>
-        <ion-avatar item-left>
-          <img src="http://www.nataliastar2015.com/wp-content/uploads/2015/08/Cup_of_cat.img_assist_custom.jpg">
-        </ion-avatar>
-        <h2>Finn</h2>
-        <h3>Rate: <ion-icon name="heart"></ion-icon><ion-icon name="heart"></ion-icon><ion-icon name="heart"></ion-icon><ion-icon name="heart" isActive="false"></ion-icon></h3>
-        <p>This is good</p>
-      </ion-item>
-    </ion-list>
-    <ion-list>
-      <ion-item>
-        <ion-avatar item-left>
-          <img src="http://www.piz18.com/wp-content/uploads/2011/11/Cute-Cat.jpg">
-        </ion-avatar>
-        <h2>Finn</h2>
-        <h3>Rate: <ion-icon name="heart"></ion-icon><ion-icon name="heart"></ion-icon><ion-icon name="heart"></ion-icon><ion-icon name="heart" isActive="false"></ion-icon></h3>
-        <p>This is good</p>
+        <h2>{{comment.name}}</h2>
+        <h3>Rate: {{comment.rate}}</h3>
+        <p>{{comment.comment}}</p>
       </ion-item>
     </ion-list>
   </div>
