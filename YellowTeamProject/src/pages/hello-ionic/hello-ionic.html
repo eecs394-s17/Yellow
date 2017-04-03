@@ -1,4 +1,4 @@
-<img src="../../assets/images/logo_M.png">
+<img src="../../assets/images/logo_L.png">
 
 <ion-list>
 
@@ -12,6 +12,10 @@
     <ion-input type="password"></ion-input>
   </ion-item>
 
-  <button ion-button round icon-left class="center"><ion-icon name="sunny"></ion-icon>Surf</button>
+  <button ion-button round icon-left (click)="search()" class="center">
+    <ion-icon name="sunny"></ion-icon>
+    Surf
+  </button>
 
 </ion-list>
+
